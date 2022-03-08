@@ -18,3 +18,9 @@ if __name__ == '__main__':
     index = binary_search(our_list, to_search, lower_index, upper_index )
     print(index)
 
+
+''' 
+If you just want to check whether the list contains the element or not, 
+you can use list concatenation in recursive function call instead of using lower and upper index
+'''
+

@@ -67,6 +67,14 @@ if __name__=="__main__":
     execution_record = fetch_size_and_time() 
     plot_graph(execution_record)                    #Plot input-size vs execution-time graph
 
+
+'''
+Instead of using tuple of namedtuples,
+you can also use dictionary of lists, i.e, 
+a list for input sizes,
+a list of linear best case time and so on.
+This way you don't need to use list comprehension in plot_graph function while plotting data.
+'''
     
     
 

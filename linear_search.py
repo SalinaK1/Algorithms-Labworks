@@ -9,3 +9,7 @@ if __name__ == '__main__':
     to_search = int(input("Enter the key to search: "))
     index = linear_search(our_list,to_search)
     print(index)
+
+'''
+You can also use enumerate to given_list and return its index.
+'''
