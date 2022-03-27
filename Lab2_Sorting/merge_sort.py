@@ -26,7 +26,7 @@ def merge_sublist(list_to_sort,start,mid,end):
 
 def merge_sort(list_to_sort,start,end):
     if start<end:
-        mid = start + (end-start)/2
+        mid = start + (end-start)//2
         merge_sort(list_to_sort,start,mid)
         merge_sort(list_to_sort, mid+1, end)
         merge_sublist(list_to_sort, start,mid,end)
