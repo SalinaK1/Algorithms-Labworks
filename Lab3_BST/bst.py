@@ -1,7 +1,7 @@
 class BinarySearchTree:
     def __init__(self):
         self.size= 0
-        self.root = None
+        self._root = None
 
     class BST_Node:
         def __init__(self,key,value):
@@ -15,7 +15,7 @@ class BinarySearchTree:
         return self.size
 
     def add(self,key,value):
-        node_x = self.root
+        node_x = self._root
         node_y = None
         new_node = self.BST_Node(key,value)
         while node_x is not None:
@@ -27,7 +27,7 @@ class BinarySearchTree:
 
         new_node.parent = node_y
         if node_y is None:
-            self.root = new_node
+            self._root = new_node
         elif new_node.key < node_y.key:
             node_y.left  = new_node
         else :
@@ -35,7 +35,7 @@ class BinarySearchTree:
         self.size+=1
       
     def search(self,key):
-        nodes = self.root
+        nodes = self._root
         while nodes is not None:
             if key == nodes.key:
                 print(f"{key} Found")
@@ -47,17 +47,52 @@ class BinarySearchTree:
         return False 
 
     def smallest(self):
-        nodes = self.root
+        nodes = self._root
         while nodes.left is not None:
             nodes = nodes.left
         return (nodes.key, nodes.value)
 
     def largest(self):
-        nodes = self.root
+        nodes = self._root
         while nodes.right is not None:
             nodes = nodes.right
         return (nodes.key, nodes.value)
+    
+    def _inorder_walk(self,node, in_list):
+        if node:
+            self._inorder_walk(node.left, in_list)
+            in_list.append(node.key)
+            self._inorder_walk(node.right, in_list)
 
+    def inorder_walk(self):
+        output_list = []
+        root = self._root
+        self._inorder_walk(root, output_list)
+        return output_list  
+
+    def _preorder_walk(self,node, pre_list):
+        if node:
+            pre_list.append(node.key)
+            self._preorder_walk(node.left, pre_list)
+            self._preorder_walk(node.right, pre_list)
+
+    def preorder_walk(self):
+        output_list = []
+        root = self._root
+        self._preorder_walk(root, output_list)
+        return output_list
+    
+    def _postorder_walk(self,node, post_list):
+        if node:
+            self._postorder_walk(node.left, post_list)
+            self._postorder_walk(node.right, post_list)
+            post_list.append(node.key)
+
+    def postorder_walk(self):
+        output_list = []
+        root = self._root
+        self._postorder_walk(root, output_list)
+        return output_list
 
 
 
@@ -80,6 +115,9 @@ if __name__ == '__main__':
     print(bst.search(4))
     print(bst.smallest())
     print (bst.largest())
+    print(bst.inorder_walk())
+    print(bst.preorder_walk())
+    print(bst.postorder_walk())
 
 
 
