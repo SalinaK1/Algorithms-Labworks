@@ -1,6 +1,3 @@
-from platform import node
-
-
 class BinarySearchTree:
     def __init__(self):
         self._size= 0
