@@ -34,14 +34,16 @@ def knapsack_brute_force(price_list, weight_list, max_capacity):
             chosen_p_w_pair.append([price_list[index],weight_list[index]])              # index of chosen items.
 
     
-    print(f"The total weight is: {total_weight}")
-    print(f"The total price is: {maximum_profit_value}") 
-    print(f"The p/w pair that we choose are :{chosen_p_w_pair}")
-    return solution
+    return solution, total_weight, maximum_profit_value, chosen_p_w_pair
 
 
 if __name__ == '__main__':
     prices = [5,8,23,7,1,6]
     weights = [4,7,1,9,5,2]
     capacity = 15
-    print(knapsack_brute_force(prices,weights,capacity))
+    solution, total_weight, maximum_profit_value, chosen_p_w_pair = knapsack_brute_force(prices,weights,capacity)
+    print(f"The total weight is: {total_weight}")
+    print(f"The total price is: {maximum_profit_value}") 
+    print(f"The p/w pair that we choose are :{chosen_p_w_pair}")
+    print(f"The solution bit is {solution}")
+    
