@@ -22,17 +22,19 @@ def knapsack_greedy(price_list, weight_list, max_capacity):
             total_price += fractional_price
             chosen_objects.append(index)
             break
-    
-    print(f"The total weight is: {total_weight}")
-    print(f"The total price is: {total_price}")
+
     chosen_p_w_pair = [[price_list[index], weight_list[index]] for index in chosen_objects]
-    print(f"The p/w pair that we choose are :{chosen_p_w_pair}")
+    
+    return total_weight, total_price, chosen_p_w_pair
 
 if __name__ == '__main__':
     prices = [5,8,23,7,1,6]
     weights = [4,7,1,9,5,2]
     capacity = 15
-    knapsack_greedy(prices, weights, capacity)
+    total_weight, total_price, chosen_p_w_pair = knapsack_greedy(prices, weights, capacity)
+    print(f"The total weight is: {total_weight}")
+    print(f"The total price is: {total_price}") 
+    print(f"The p/w pair that we choose are :{chosen_p_w_pair}")
 
 
 
